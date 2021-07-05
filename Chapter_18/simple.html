@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple HTML-page</title>
+	<style>
+		.callout {
+			border: solid 1px #ff0080;
+			margin:  2px 4px;
+			padding: 2px 6px;
+		}
+		.code {
+			background: #ccc;
+			margin:  1px 2px;
+			padding: 1px 4px;
+			font-family: monospace;
+		}
+		.highlight {
+			background: #ff0;
+			font-style: italic;
+		}
+	</style>
+	<script type="text/javascript">
+		function printDOM(node, prefix) {
+			console.log(prefix + node.nodeName);
+			for (let i=0; i<node.childNodes.length; i++) {
+				printDOM(node.childNodes[i], prefix + '\t');
+			}
+		}
+		printDOM(document, '');
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Simple HTML-page</h1>
+	</header>
+	<div id="content">
+		<p>This <i>simple</i> HTML-file.</p>
+		<div class="callout">
+			<p>He lets you do amazing things.</p>
+		</div>
+		<p>Element ids (e.g. <span class="code">#content</span>)are unique (they must be used on the page only once).</p>
+		<p>Class names (for example, <span class="code">.Callout </span>) can be used in many elements.</p>
+		<div id="callout2" class="callout fancy">
+			<p>One HTML element can be assigned several classes.</p>
+		</div>
+		<button data-action='highlight' data-containing='unique'>
+			Highlights paragraphs containing the word "unique"
+		</button>
+		<button data-action='removeHighlights'>
+			Removes ghosting
+		</button>
+	</div>
+</body>
+</html>
